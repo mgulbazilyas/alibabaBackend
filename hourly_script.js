@@ -10,7 +10,7 @@ const client = new TopClient({
 
 // replace the value below with the Telegram token you receive from @BotFather
 const token = '1748725653:AAHaeSnpq7Q4eXuLDVgf1tlf09L0crGEIxk';
-const chatId = '618101321';
+const chatId = -618101321;
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: false});
 
@@ -33,7 +33,10 @@ const bot = new TelegramBot(token, {polling: false});
     }else{
       console.log(product.affiliateUrl)
     }
-
+    await bot.sendMessage(chatId, `
+${product.affiliateUrl}
+    `)
+    // product.posted = true;
     product.save()
     console.log(product)
   }

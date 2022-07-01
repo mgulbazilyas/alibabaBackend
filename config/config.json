@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "alibabaBackend",
-    "host": "127.0.0.1",
+    "username": "alibabagukly_main",
+    "password": "TCuFuXjwvgrR",
+    "database": "alibabagukly_main",
+    "host": "176.58.105.157",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "alibabaBackend",
-    "host": "127.0.0.1",
+    "username": "alibabagukly_main",
+    "password": "TCuFuXjwvgrR",
+    "database": "alibabagukly_main",
+    "host": "176.58.105.157",
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "alibabaBackend",
-    "host": "127.0.0.1",
+    "username": "alibabagukly_main",
+    "password": "TCuFuXjwvgrR",
+    "database": "alibabagukly_main",
+    "host": "176.58.105.157",
     "dialect": "mysql"
   }
 }
