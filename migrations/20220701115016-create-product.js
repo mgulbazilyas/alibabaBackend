@@ -11,6 +11,27 @@ module.exports = {
       sourceUrl: {
         type: Sequelize.STRING
       },
+      coupon: {
+        type: Sequelize.STRING
+      },
+      images: {
+        type: Sequelize.TEXT
+      },
+      price: {
+        type: Sequelize.STRING
+      },
+      title: {
+        type: Sequelize.STRING
+      },
+      orderCount: {
+        type: Sequelize.STRING
+      },
+      posted: {
+        type: Sequelize.BOOLEAN
+      },
+      affiliateUrl: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
