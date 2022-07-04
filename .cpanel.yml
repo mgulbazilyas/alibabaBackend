@@ -1,0 +1,12 @@
+---
+deployment:
+  tasks:
+    - export SOURCE_ROOT=/home4/alibabagukly/repositories/alibabaBackend
+    - export PROJECT_ROOT=/home4/alibabagukly/backend
+    - export DEPLOY_ROOT=/home4/alibabagukly/public_html
+    - source /home4/alibabagukly/nodevenv/backend/10/bin/activate && cd /home4/alibabagukly/backend
+    - cp -r $SOURCE_ROOT/public/* $DEPLOY_ROOT
+    - cp -r $SOURCE_ROOT/* $PROJECT_ROOT
+    - npm install
+
+

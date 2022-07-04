@@ -4,7 +4,12 @@
     "password": "TCuFuXjwvgrR",
     "database": "alibabagukly_main",
     "host": "176.58.105.157",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "charset": "utf8",
+      "collate": "utf8_general_ci",
+      "timestamps": true
+    }
   },
   "test": {
     "username": "alibabagukly_main",
