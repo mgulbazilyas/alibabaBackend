@@ -12,10 +12,10 @@
     }
   },
   "test": {
-    "username": "alibabagukly_main",
-    "password": "TCuFuXjwvgrR",
-    "database": "alibabagukly_main",
-    "host": "176.58.105.157",
+    "username": "root",
+    "password": "",
+    "database": "alibababackend",
+    "host": "localhost",
     "dialect": "mysql"
   },
   "production": {

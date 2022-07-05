@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+.btn-danger{
+  background-color: #e05865 !important;
+}

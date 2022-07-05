@@ -5,9 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 var indexRouter = require('./routes/index');
+var authRouter = require('./routes/auth');
 var usersRouter = require('./routes/users');
 var addProductRouter = require('./routes/addProduct');
+var ProductsRouter = require('./routes/viewProduct');
 var testRouter = require('./routes/tests');
+const {AuthMiddleware, ApiAuthMiddleware} = require('./middlewares/authMiddleware');
 var {Product, sequelize} = require('./models');
 (async function (){
   try {
@@ -35,9 +38,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/add-product', addProductRouter);
-app.use('/tests', testRouter);
+app.use('/auth', authRouter);
+app.use('/users',AuthMiddleware, usersRouter);
+app.use('/add-product',ApiAuthMiddleware, addProductRouter);
+app.use('/products', AuthMiddleware, ProductsRouter);
+app.use('/tests',AuthMiddleware, testRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

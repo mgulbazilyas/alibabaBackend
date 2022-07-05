@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    div(class='container')
+        h1= title
+        p Welcome to #{title}
+        if message
+            div(class="alert alert-success" role="alert")=message
+        form(method='POST')
+            div(class='form-group')
+                label(for='title') title
+                input(class='form-control' type='text' value=product.title id='title' name='title')
+
+
+
+            div(class='form-group')
+                label(for='price') price
+                input(class='form-control' type='text' value=product.price id='price' name='price')
+
+
+            div(class='form-group')
+                label(for='image') image
+                input(class='form-control' type='text' value=product.images id='image' name='image')
+
+
+            button(type='submit' class='btn btn-success') Submit
+
