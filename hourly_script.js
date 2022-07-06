@@ -25,7 +25,10 @@ const bot = new TelegramBot(token, {polling: false});
         try{
 
             product;
-      if(product.affiliateUrl === null || product.affiliateUrl === ""){
+            const old_affiliate_url = product.affiliateUrl;
+
+            if(product.affiliateUrl === null || product.affiliateUrl === "" || product.affiliateUrl === "edited"){
+
         console.log(product.sourceUrl)
         var result = await client.execute('aliexpress.affiliate.link.generate', {
           'promotion_link_type': 2,
@@ -47,9 +50,14 @@ const bot = new TelegramBot(token, {polling: false});
         coupon = coupon + '\n🎁' + coupon1;
       }
       let title = product.title;
+      let title_formatted;
+      if( old_affiliate_url === 'edited'){
+          title_formatted = title;
+      }
+      else{
+          title_formatted = title.split(' ').splice(0, 7).join(' ');
 
-
-      let title_formatted = title.split(' ').splice(0, 7).join(' ');
+      }
       await bot.sendPhoto(chatId,
           product.images,
           {caption:

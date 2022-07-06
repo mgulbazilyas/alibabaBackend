@@ -4,36 +4,39 @@ block content
     div.container-fluid
         h1= title
         p Welcome to #{title}
-        table(class='table')
-            thead
-                th ID
-                th Title
-                th price
-                th rating
-                th order count
-                th Posted?
-            tbody
-                each product in products
-                    - var posted = product.posted === true;
-                    - var notPosted = product.posted === false;
+        div.row
+            button(class='btn btn-danger btn-large' data-action='delete-all' style='margin-bottom: 5px;') Delete All
+        div.row
+            table(class='table')
+                thead
+                    th ID
+                    th Title
+                    th price
+                    th rating
+                    th order count
+                    th Posted?
+                tbody
+                    each product in products
+                        - var posted = product.posted === true;
+                        - var notPosted = product.posted === false;
 
-                    tr
-                        td=product.id
-                        td
-                            a(href=product.sourceUrl)=product.title
-                        td=product.price
-                        td=product.rating
-                        td=product.orderCount
-                        td
-                            if posted
-                                i.fa.fa-check-circle(style='color:green')
-                            else if notPosted
-                                i.fa.fa-exclamation-circle(style='color:red')
-                            else
-                                - var edit_url = "/products/edit/" + product.id.toString();
+                        tr
+                            td=product.id
+                            td
+                                a(href=product.sourceUrl)=product.title
+                            td=product.price
+                            td=product.rating
+                            td=product.orderCount
+                            td
+                                if posted
+                                    i.fa.fa-check-circle(style='color:green')
+                                else if notPosted
+                                    i.fa.fa-exclamation-circle(style='color:red')
+                                else
+                                    - var edit_url = "/products/edit/" + product.id.toString();
 
-                                a(disabled=posted  class='btn btn-primary' href=edit_url style='margin-bottom: 5px; margin-right: 5px') Edit
-                                a(class='btn btn-danger' data-action='delete' data-id=product.id style='margin-bottom: 5px;') Delete
+                                    a(disabled=posted  class='btn btn-primary' href=edit_url style='margin-bottom: 5px;') Edit
+                                a(class='btn btn-danger' data-action='delete' data-id=product.id style='margin-bottom: 5px; margin-left: 10px') Delete
 
 block extraScript
     script(src="//cdn.jsdelivr.net/npm/sweetalert2@11")

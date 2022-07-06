@@ -11,6 +11,25 @@ router.get('/', async function (req, res, next) {
     res.render('products', {title: 'Express', products: products});
 });
 
+router.post('/delete-all', async function(req, res, next){
+    let resp = await Product.destroy(
+        {
+            where: {},
+            truncate: true
+        }
+    );
+    res.send({"status": 200, "response": resp})
+});
+
+router.post('/delete/:id', async function(req, res, next){
+    let resp = await Product.destroy({
+        where: {
+            id: req.params.id,
+        }
+    });
+    res.send({"status": 200, "response": resp})
+});
+
 router.get('/edit/:id/', async function (req, res, next) {
     const {id} = req.params;
     const product = await Product.findByPk(id);
@@ -21,6 +40,8 @@ router.get('/edit/:id/', async function (req, res, next) {
     }
 
 });
+
+
 router.post('/edit/:id/', async function (req, res, next) {
     const {id} = req.params;
 
@@ -34,6 +55,7 @@ router.post('/edit/:id/', async function (req, res, next) {
         product.price = price;
         product.title = title;
         product.images = image;
+        product.affiliateUrl = 'edited';
         await product.save();
         res.render('edit-product', {title: 'Express', product, message: "Updated"});
     }
